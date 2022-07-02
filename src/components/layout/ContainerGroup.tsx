@@ -5,15 +5,12 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import styled from '@emotion/styled';
+import { Copyright } from '../molecules/Copyright';
 
 interface ContainerProps {
     children: ReactJSXElement
 }
 const theme = createTheme();
-
-const StyledContainer = styled(Container)`
-    margin-top: 0 !important;
-`
 
 export const ContainerCenter:React.FC<ContainerProps> = ({children}) => {
 
@@ -23,7 +20,6 @@ export const ContainerCenter:React.FC<ContainerProps> = ({children}) => {
                 <CssBaseline />
                 <Box
                 sx={{
-                    marginTop: 8,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -31,6 +27,7 @@ export const ContainerCenter:React.FC<ContainerProps> = ({children}) => {
                 >
                 {children}    
                 </Box>
+                <Copyright sx={{ mt: 5 }} />
             </Container>
         </ThemeProvider>
     )

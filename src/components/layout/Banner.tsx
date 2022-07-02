@@ -7,7 +7,7 @@ width: 100vw;
 display: flex;
 flex-direction: column;
 align-items: center;
-//gap: 40px;
+gap: 40px;
 margin-bottom: 15px;
 
 padding: 40px;
@@ -30,7 +30,6 @@ div {
 `
 
 const BannerTitle = styled.h1`
-    //font-family: 'Jua', sans-serif;
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
