@@ -9,6 +9,13 @@ export const TextInput = styled(TextField)`
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
+    
+    & input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition: background-color 5000s;
+    }
 }
 
 
@@ -19,10 +26,6 @@ export const TextInput = styled(TextField)`
     margin: 5px 1px 3px 0px;
     border: 1px solid rgba(81, 203, 238, 1);
 }
-
-// & .MuiOutlinedInput:-webkit-autofill {
-//     background-color: rgba(81, 203, 238, 0.7);
-// }
 
 & .MuiInputLabel-root.Mui-focused {
     top: -10px !important;
