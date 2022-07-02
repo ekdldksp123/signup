@@ -4,11 +4,16 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
+import styled from '@emotion/styled';
 
 interface ContainerProps {
     children: ReactJSXElement
 }
 const theme = createTheme();
+
+const StyledContainer = styled(Container)`
+    margin-top: 0 !important;
+`
 
 export const ContainerCenter:React.FC<ContainerProps> = ({children}) => {
 

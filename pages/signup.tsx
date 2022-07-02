@@ -1,24 +1,24 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import styled from '@emotion/styled';
+import { TextInput } from '../src/components/atom/InputGroup';
+import { Banner } from '../src/components/layout/Banner';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://github.com/ekdldksp123">
+        Vinchae Kim
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -26,7 +26,62 @@ function Copyright(props: any) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+    // overrides: {
+    //           MuiInputBase: {
+    //             input: {
+    //               '&:-webkit-autofill': {
+    //                 transitionDelay: '9999s',
+    //                 transitionProperty: 'background-color, color',
+    //               },
+    //             },
+    //           },
+    //         },
+    components: {
+        MuiCssBaseline: {
+          styleOverrides: {
+            root : {
+              input :{
+                '&:-webkit-autofill': {
+                    transitionDelay: '9999s',
+                    transitionProperty: 'background-color, color',
+                },
+              }
+            }
+          },
+        },
+    }
+});
+
+const SubmitButton = styled(Button)`
+    height: 55px;
+    width: 100%;
+    outline:none;
+    text-align: center;
+    border-radius: 25px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color:#1ECD97;
+    letter-spacing:1px;
+    text-shadow:0;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin: 12.5px 0 12.5px;
+
+    &:hover {
+        color:white;
+        background: #1ECD97;
+    }
+    &:active {
+        letter-spacing: 2px;
+    }
+    &:after {
+        content:"Submit";
+    }
+`;
+
 
 export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -50,54 +105,60 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          {/* <Avatar sx={{ m: 2}}>
+            <AssignmentInd />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
-          </Typography>
+          </Typography> */}
+          <Banner title="Sign up"/>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+            <Grid container spacing={3.5}>
+              <Grid item xs={12}>
+                <TextInput
+                  name="username"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="username"
+                  label="Username"
+                  //helperText=""
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  autoComplete='false'
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <TextInput
                   required
                   fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
+                  //helperText="invalid email"
+                  //error={true}
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <TextInput
                   required
                   fullWidth
                   name="password"
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  //helperText=""
+                  autoComplete='false'
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextInput
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  //helperText=""
+                  autoComplete='false'
                 />
               </Grid>
               <Grid item xs={12}>
@@ -107,14 +168,7 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
+            <SubmitButton type="submit" />
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
