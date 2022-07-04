@@ -10,6 +10,7 @@ import SignupForm from '../molecules/FormGroup';
 import { InputProps } from '../../types/FormProps';
 
 const SignupView:React.FC = () => {
+    
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -45,7 +46,7 @@ const SignupView:React.FC = () => {
                 />
               </Grid>
             </Grid>
-            <SubmitButton disabled={true} type="submit" />
+            <SubmitButton disabled={false} type="submit" />
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">

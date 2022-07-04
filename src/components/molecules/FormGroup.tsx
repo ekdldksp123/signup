@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { FormProps } from "../../types/FormProps";
 import { TextInput } from "../atom/InputGroup";
 import { isEmail } from "../../libs/signup.module";
@@ -11,7 +11,6 @@ const SignupForm:React.FC<FormProps> = ({inputGroup}) => {
                 return (
                     <Grid item xs={12} key={`grid-${i}`}>
                         <TextInput
-                            valid={isEmail(v.value)}
                             key={`input-${i}`}
                             name={v.name}
                             required
@@ -46,7 +45,6 @@ const SignupForm:React.FC<FormProps> = ({inputGroup}) => {
                 return (
                     <Grid item xs={12} key={`grid-${i}`}>
                         <TextInput
-                            valid={true}
                             key={`input-${i}`}
                             name={v.name}
                             required
