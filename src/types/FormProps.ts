@@ -1,10 +1,10 @@
 export interface FormProps {
-    inputGroup: InputProps[]
+  inputGroup: InputProps[]
 }
 
 export interface InputProps {
-    name: string;
-    label: string;
-    value: string;
-    setValue: (newValue: string) => void;
+  name: string
+  label: string
+  value: string
+  setValue: (newValue: string) => void
 }
