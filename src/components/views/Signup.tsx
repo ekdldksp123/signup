@@ -7,11 +7,11 @@ import { Banner } from '../layout/Banner'
 import { SubmitButton } from '../atom/ButtonGroup'
 import SignupForm from '../molecules/FormGroup'
 import { InputProps } from '../../types/FormProps'
-import { isEmail, isValidPassword, isValidSignupForm } from '../../libs/signup.module'
+import { isValidSignupForm } from '../../libs/signup.module'
 import Router from 'next/router'
 import Link from 'next/link'
-import { LensTwoTone } from '@mui/icons-material'
-import { Console } from 'console'
+import { SignUpData } from '../../types/Signup'
+import { callPostApi } from '../../api/api.module'
 
 const SignupView: React.FC = () => {
   const [username, setUsername] = useState<string>('')
@@ -36,11 +36,18 @@ const SignupView: React.FC = () => {
     { name: 'confirmPassword', label: 'Confirm Password', value: confirmPassword, setValue: setConfirmPassword },
   ]
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    alert('success')
-    Router.push({ pathname: '/' })
+    const signupData: SignUpData = {
+      userName: username,
+      userEmail: email,
+      userPassword: password,
+    }
+
+    const res = await callPostApi('user/sign-up', signupData)
+    if(res) Router.push({ pathname: '/login'})
+    else alert('회원가입에 실패했습니다. 잠시후 다시 시도해주세요..')
   }
 
   return (
