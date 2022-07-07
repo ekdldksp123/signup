@@ -23,15 +23,19 @@ export const isEmail = (email: string) => {
   export const isValidSignupForm = (
     username: string,
     email: string,
+    checkEmail: boolean,
     password: string,
     confirmPassword: string,
     agreement: boolean
   ) => {
+
+    console.log(checkEmail);
     // signup form validation
     if (username === '') return true
     if (email === '') return true
-    if (password === '') return true
     if (!isEmail(email)) return true
+    if (!checkEmail) return true
+    if (password === '') return true
     if (!isValidPassword(password)) return true
     if (confirmPassword === '' || confirmPassword !== password) return true
     if (!agreement) return true

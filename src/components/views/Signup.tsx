@@ -18,6 +18,7 @@ const SignupView: React.FC = () => {
 
   const [username, setUsername] = useState<string>('')
   const [email, setEmail] = useState<string>('')
+  const [checkEmail, setCheckEmail] = useState<boolean>(false)
   const [password, setPassword] = useState<string>('')
   const [confirmPassword, setConfirmPassword] = useState<string>('')
   const [agreement, setAgreement] = useState<boolean>(false)
@@ -26,7 +27,7 @@ const SignupView: React.FC = () => {
 
   useEffect(() => {
     console.log()
-    if (!isValidSignupForm(username, email, password, confirmPassword, agreement)) {
+    if (!isValidSignupForm(username, email, checkEmail, password, confirmPassword, agreement)) {
       setDisabled(!disabled)
     }
   }, [username, email, password, confirmPassword, agreement])
@@ -57,7 +58,11 @@ const SignupView: React.FC = () => {
       <Banner title="Sign up" />
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
         <Grid container spacing={3.5}>
-          <SignupForm inputGroup={inputGroupProps} />
+          <SignupForm 
+            inputGroup={inputGroupProps} 
+            checkEmail={checkEmail}
+            setCheckEmail={setCheckEmail}
+          />
           <Grid item xs={12}>
             <FormControlLabel
               control={

@@ -32,7 +32,6 @@ export const SubmitButton = styled(Button)`
   }
 `
 
-
 export const LoginButton = styled(Button)`
   width: 100%;
   font-size: 16px;
@@ -66,3 +65,28 @@ export const LoginButton = styled(Button)`
     outline: none;
   }
 `
+
+export const CheckButton = styled(Button)`
+  outline: none;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  text-shadow: 0;
+  letter-spacing: 1px;
+  color: tomato;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid tomato;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  
+  &:hover {
+    color: white;
+    background: tomato;
+  }
+  &:active {
+    letter-spacing: 2px;
+  }
+`;

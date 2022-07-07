@@ -1,5 +1,7 @@
 export interface FormProps {
   inputGroup: InputProps[]
+  checkEmail: boolean,
+  setCheckEmail: (status: boolean) => void
 }
 
 export interface InputProps {
