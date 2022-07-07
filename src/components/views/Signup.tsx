@@ -8,12 +8,14 @@ import { SubmitButton } from '../atom/ButtonGroup'
 import SignupForm from '../molecules/FormGroup'
 import { InputProps } from '../../types/FormProps'
 import { isValidSignupForm } from '../../libs/signup.module'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { SignUpData } from '../../types/Signup'
 import { callPostApi } from '../../api/api.module'
 
 const SignupView: React.FC = () => {
+  const router = useRouter()
+
   const [username, setUsername] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -46,7 +48,7 @@ const SignupView: React.FC = () => {
     }
 
     const res = await callPostApi('user/sign-up', signupData)
-    if(res) Router.push({ pathname: '/login'})
+    if(res) router.push({ pathname: '/login'})
     else alert('회원가입에 실패했습니다. 잠시후 다시 시도해주세요..')
   }
 
@@ -72,7 +74,7 @@ const SignupView: React.FC = () => {
         <SubmitButton disabled={disabled} type="submit" />
         <Grid container justifyContent="flex-end">
           <Grid item>
-            <Link href="#">Already have an account? Sign in</Link>
+            <Link href="/login" >Already have an account? Sign in</Link>
           </Grid>
         </Grid>
       </Box>

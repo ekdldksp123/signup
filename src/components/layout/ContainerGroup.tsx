@@ -4,8 +4,6 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace'
-import styled from '@emotion/styled'
-import { Copyright } from '../molecules/Copyright'
 
 interface ContainerProps {
   children: ReactJSXElement
@@ -22,11 +20,11 @@ export const ContainerCenter: React.FC<ContainerProps> = ({ children }) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            position: 'relative'
           }}
         >
           {children}
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   )

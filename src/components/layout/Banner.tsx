@@ -11,8 +11,20 @@ const BannerWrapper = styled.section`
   margin-bottom: 15px;
 
   padding: 40px;
+  background-image: linear-gradient(to right, #00decc, #00a1fc);
+`
 
-  background: linear-gradient(to right, #00decc, #00a1fc);
+const LoginBannerWrapper = styled.section`
+  margin: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 15px;
+
+  padding: 40px;
+  background-image: linear-gradient(to right, #81FBB8, #28C76F);
 `
 
 const BannerBox = styled.section`
@@ -48,5 +60,15 @@ export const Banner: React.FC<BannerProps> = ({ title }) => {
         <BannerTitle>{title}</BannerTitle>
       </BannerBox>
     </BannerWrapper>
+  )
+}
+
+export const LoginBanner: React.FC<BannerProps> = ({ title }) => {
+  return (
+    <LoginBannerWrapper>
+      <BannerBox>
+        <BannerTitle>{title}</BannerTitle>
+      </BannerBox>
+    </LoginBannerWrapper>
   )
 }
