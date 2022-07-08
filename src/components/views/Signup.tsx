@@ -26,6 +26,10 @@ const SignupView: React.FC = () => {
   const [disabled, setDisabled] = useState<boolean>(true)
 
   useEffect(() => {
+    console.log(checkEmail)
+  }, [checkEmail])
+
+  useEffect(() => {
     console.log()
     if (!isValidSignupForm(username, email, checkEmail, password, confirmPassword, agreement)) {
       setDisabled(!disabled)

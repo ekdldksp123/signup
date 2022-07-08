@@ -90,3 +90,31 @@ export const CheckButton = styled(Button)`
     letter-spacing: 2px;
   }
 `;
+
+export const LinkButton = styled.div`
+    cursor: pointer;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 40px !important;
+    font-size: 1.35rem;
+    color: #fff;
+    
+    padding-bottom: 15px;
+    &:after {
+        display:block;
+        content: '';
+        left: 0;
+        height: 2px;
+        width: 100%;
+        border-bottom: solid 2px #fff;
+        transform-origin: right top;
+        transform: scale(0, 1);
+        transition: color 0.1s, transform 0.3s ease-out;
+    }
+    &:hover:after {
+        transform-origin: left top;
+        transform: scale(1, 1);
+    }
+`
